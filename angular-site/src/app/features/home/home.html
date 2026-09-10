@@ -1,0 +1,12 @@
+<app-hero [profile]="content.profile" /><app-approach-banner /><app-services
+  [items]="content.services"
+  (selectService)="chooseService($event)"
+/><app-programs [items]="content.programs" (selectService)="chooseService($event)" /><app-method
+  [profile]="content.profile"
+/><app-booking
+  [services]="content.services"
+  [config]="content.booking"
+  [selectedServiceId]="selectedService()"
+/><app-testimonials [items]="content.testimonials" /><app-faq
+  [items]="content.faqs"
+/><app-final-cta />

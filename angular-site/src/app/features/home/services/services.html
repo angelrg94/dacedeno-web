@@ -1,0 +1,33 @@
+<section class="services section-pad" id="servicios">
+  <div class="section-heading">
+    <p class="section-label">Trabajemos juntas</p>
+    <h2>Un acompañamiento que mira tu vida completa.</h2>
+    <p>
+      No tienes que elegir entre sentirte bien y disfrutar. Diseñamos un camino que haga espacio
+      para ambas cosas.
+    </p>
+  </div>
+  <div class="service-list">
+    @for (service of items(); track service.id) {
+      <article class="service-row" [class]="'service-row ' + service.cssClass">
+        <div class="service-icon" aria-hidden="true">{{ service.symbol }}</div>
+        <div>
+          <h3>{{ service.title }}</h3>
+          <p>{{ service.description }}</p>
+        </div>
+        <ul>
+          @for (benefit of service.benefits; track benefit) {
+            <li>{{ benefit }}</li>
+          }
+        </ul>
+        <a
+          routerLink="/"
+          fragment="agenda"
+          (click)="selectService.emit(service.id)"
+          [attr.aria-label]="'Consultar ' + service.title"
+          >Consultar</a
+        >
+      </article>
+    }
+  </div>
+</section>

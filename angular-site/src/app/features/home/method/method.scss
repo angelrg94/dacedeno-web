@@ -1,0 +1,135 @@
+:host {
+  display: block;
+}
+.method-copy h2 {
+  margin-bottom: 0;
+  font-size: clamp(43px, 5.4vw, 82px);
+  line-height: 0.96;
+  letter-spacing: -0.05em;
+  font-weight: 600;
+}
+.method {
+  display: grid;
+  grid-template-columns: minmax(360px, 0.9fr) minmax(440px, 1.1fr);
+  gap: clamp(60px, 9vw, 150px);
+  align-items: center;
+  background: var(--paper);
+}
+.method-photo {
+  position: relative;
+  min-height: 660px;
+}
+.method-photo::before {
+  content: '';
+  position: absolute;
+  inset: -23px 38px 28px -20px;
+  border: 3px solid var(--sand);
+  border-radius: 190px 190px 28px 28px;
+  transform: rotate(-3deg);
+}
+.method-photo img {
+  position: absolute;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  object-position: 53% center;
+  border-radius: 190px 190px 28px 28px;
+  filter: saturate(0.88) contrast(0.98);
+}
+.image-stamp {
+  position: absolute;
+  right: -38px;
+  bottom: 50px;
+  width: 125px;
+  height: 125px;
+  display: grid;
+  place-items: center;
+  padding: 20px;
+  border-radius: 50%;
+  background: var(--sage);
+  font: 600 15px/1.2 var(--display);
+  text-align: center;
+  transform: rotate(8deg);
+}
+.method-copy > p:not(.section-label) {
+  max-width: 660px;
+  margin: 30px 0 44px;
+  font-size: 16px;
+  line-height: 1.75;
+}
+.daniela-signature {
+  width: min(330px, 70%);
+  margin: -19px 0 38px auto;
+  transform: rotate(-2.5deg);
+}
+.daniela-signature img {
+  display: block;
+  width: 100%;
+  height: auto;
+}
+.method-steps {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+  border-top: 1px solid var(--line);
+}
+.method-steps li {
+  display: grid;
+  grid-template-columns: 54px 1fr;
+  gap: 18px;
+  padding: 22px 0;
+  border-bottom: 1px solid var(--line);
+}
+.method-steps > li > span {
+  color: var(--deep);
+  font: 600 14px/1.4 var(--display);
+}
+.method-steps b {
+  font: 600 18px/1.3 var(--display);
+}
+.method-steps p {
+  margin: 5px 0 0;
+  font-size: 13px;
+  line-height: 1.6;
+}
+@media (max-width: 780px) {
+  .method {
+    grid-template-columns: 1fr;
+    gap: 70px;
+  }
+  .method-photo {
+    min-height: 540px;
+  }
+  .image-stamp {
+    right: -4px;
+  }
+  .daniela-signature {
+    width: min(310px, 78%);
+    margin-right: 2vw;
+  }
+}
+@media (max-width: 480px) {
+  .method-copy h2 {
+    font-size: 45px;
+  }
+  .method-photo {
+    min-height: 440px;
+  }
+  .method-photo img {
+    border-radius: 130px 130px 24px 24px;
+  }
+  .method-photo::before {
+    border-radius: 130px 130px 24px 24px;
+  }
+}
+
+@media (min-width: 781px) and (max-width: 1100px) {
+  .method {
+    grid-template-columns: minmax(0, 1fr) minmax(0, 1fr);
+    gap: 50px;
+  }
+  .method-photo {
+    min-height: 540px;
+  }
+}

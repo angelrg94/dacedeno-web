@@ -1,0 +1,16 @@
+<footer class="site-footer">
+  <app-brand [inFooter]="true" />
+  <div class="footer-links">
+    @if (profile().contact.email) {
+      <a [href]="'mailto:' + profile().contact.email">{{ profile().contact.email }}</a>
+    }
+    @if (profile().contact.instagram) {
+      <a [href]="profile().contact.instagram" rel="noopener noreferrer">Instagram</a>
+    }
+    @if (profile().contact.whatsapp) {
+      <a [href]="profile().contact.whatsapp" rel="noopener noreferrer">WhatsApp</a>
+    }
+    <a routerLink="/privacidad">Privacidad</a>
+  </div>
+  <p>© {{ year() }} Daniela Cedeño.</p>
+</footer>

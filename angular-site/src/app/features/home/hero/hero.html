@@ -1,0 +1,47 @@
+<section class="hero" id="inicio">
+  <div class="hero-copy entrance">
+    <p class="hero-kicker">{{ profile().credentials }}</p>
+    <h1>Comer bien.<br />Moverte mejor.<br />Vivir más tú.</h1>
+    <p class="hero-intro">
+      {{ profile().introduction }}
+    </p>
+    <div class="hero-actions">
+      <a class="button button-primary" routerLink="/" fragment="agenda">Quiero comenzar</a>
+      <a class="text-link" routerLink="/" fragment="programas"
+        >Ver programas <span aria-hidden="true">↗</span></a
+      >
+    </div>
+    <div class="hero-proof" aria-label="Enfoque">
+      @for (item of profile().highlights; track item.title) {
+        <div>
+          <strong>{{ item.title }}</strong
+          ><span>{{ item.text }}</span>
+        </div>
+      }
+    </div>
+  </div>
+
+  <div class="hero-visual entrance">
+    <div class="portrait-frame">
+      <img
+        src="/images/daniela-retrato-900.webp"
+        srcset="/images/daniela-retrato-480.webp 480w, /images/daniela-retrato-900.webp 900w"
+        sizes="(max-width: 780px) 80vw, 40vw"
+        width="900"
+        height="1600"
+        alt="Daniela Cedeño entrenando con una pesa rusa al aire libre"
+        fetchpriority="high"
+        decoding="async"
+      />
+    </div>
+    <div class="scribble" aria-hidden="true">
+      <svg viewBox="0 0 430 470" fill="none">
+        <path
+          d="M50 380C114 449 289 461 365 354C442 246 392 76 255 56C132 38 38 126 55 226C71 318 191 337 279 302"
+        />
+      </svg>
+    </div>
+    <div class="floating-note note-energy"><b>+ energía</b><span>para lo que amas</span></div>
+    <div class="floating-note note-plan"><b>Tu plan.</b><span>A tu ritmo.</span></div>
+  </div>
+</section>

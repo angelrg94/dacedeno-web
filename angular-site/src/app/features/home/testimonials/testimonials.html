@@ -1,0 +1,95 @@
+<section class="testimonials section-pad" id="testimonios" aria-labelledby="testimonials-title">
+  <div class="testimonials-intro">
+    <p class="section-label">Testimonios</p>
+    <h2 id="testimonials-title">Cambios que se sienten en la vida real.</h2>
+    <p>Experiencias compartidas por clientes, con identidad reservada y publicación autorizada.</p>
+    <div
+      class="testimonial-stamp"
+      [attr.aria-label]="publishedItems().length + ' historias publicadas'"
+    >
+      <strong>{{ publishedItems().length }}</strong
+      ><span>historias<br />publicadas</span>
+    </div>
+  </div>
+  @if (current(); as testimonial) {
+    <div
+      class="testimonial-stage"
+      tabindex="0"
+      aria-label="Carrusel de testimonios. Usa las flechas para navegar."
+      (keydown.arrowleft)="previous()"
+      (keydown.arrowright)="next()"
+    >
+      @if (testimonial.editorialType === 'literal') {
+        <span class="quote-mark" aria-hidden="true">“</span>
+      }
+      <div class="testimonial-slides" aria-live="polite" aria-atomic="true">
+        <article class="testimonial-slide is-active">
+          @if (testimonial.editorialType === 'literal') {
+            <blockquote>{{ testimonial.text }}</blockquote>
+          } @else {
+            <p class="testimonial-summary">{{ testimonial.text }}</p>
+          }
+          <p class="testimonial-meta">
+            <b>{{ testimonial.attribution }}</b
+            ><span>{{ testimonial.category }}</span
+            ><span>{{
+              testimonial.editorialType === 'literal' ? 'Cita literal' : 'Resumen editorial'
+            }}</span>
+          </p>
+        </article>
+      </div>
+      <div class="testimonial-footer">
+        <div class="testimonial-nav">
+          <button
+            class="testimonial-arrow"
+            type="button"
+            aria-label="Ver testimonio anterior"
+            (click)="previous()"
+          >
+            ‹</button
+          ><span class="testimonial-counter"
+            ><b>{{ (index() + 1).toString().padStart(2, '0') }}</b> /
+            {{ publishedItems().length.toString().padStart(2, '0') }}</span
+          ><button
+            class="testimonial-arrow"
+            type="button"
+            aria-label="Ver testimonio siguiente"
+            (click)="next()"
+          >
+            ›
+          </button>
+        </div>
+        <div class="testimonial-progress" aria-label="Elegir testimonio">
+          @for (item of publishedItems(); track item.id; let i = $index) {
+            <button
+              type="button"
+              [attr.aria-label]="'Ver testimonio ' + (i + 1)"
+              [attr.aria-current]="i === index() ? 'true' : null"
+              (click)="goTo(i)"
+            ></button>
+          }
+        </div>
+      </div>
+      <details class="testimonial-all">
+        <summary>Ver todos</summary>
+        <ol>
+          @for (item of publishedItems(); track item.id) {
+            <li>
+              <span
+                >{{
+                  item.editorialType === 'literal' ? 'Cita literal' : 'Resumen editorial'
+                }}:</span
+              >
+              {{ item.text }}
+            </li>
+          }
+        </ol>
+      </details>
+    </div>
+  } @else {
+    <div class="testimonial-stage testimonial-empty">
+      <p>Aquí aparecerán experiencias compartidas con autorización.</p>
+      <span>La selección editorial está pendiente de revisión.</span>
+    </div>
+  }
+</section>

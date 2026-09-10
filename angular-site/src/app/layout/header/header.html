@@ -1,0 +1,25 @@
+<header class="site-header" (keydown.escape)="close(true)">
+  <app-brand />
+  <button
+    #toggle
+    class="menu-toggle"
+    type="button"
+    [attr.aria-expanded]="menuOpen()"
+    aria-controls="main-nav"
+    (click)="menuOpen.set(!menuOpen())"
+  >
+    <span></span><span></span><span></span
+    ><span class="sr-only">{{ menuOpen() ? 'Cerrar menú' : 'Abrir menú' }}</span>
+  </button>
+  <nav id="main-nav" class="main-nav" [class.open]="menuOpen()" aria-label="Navegación principal">
+    @for (link of links; track link.id) {
+      <a
+        routerLink="/"
+        [fragment]="link.id"
+        [class.nav-cta]="link.id === 'agenda'"
+        (click)="close()"
+        >{{ link.label }}</a
+      >
+    }
+  </nav>
+</header>

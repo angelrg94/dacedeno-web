@@ -1,0 +1,38 @@
+<section class="programs section-pad" id="programas">
+  <div class="programs-intro">
+    <p class="section-label">Programas y productos</p>
+    <h2>Elige cómo quieres empezar.</h2>
+    <p>Alimentación y movimiento para distintos momentos de tu vida.</p>
+  </div>
+  <div class="program-grid">
+    @for (program of items(); track program.id) {
+      <article [class]="'program-card ' + program.cssClass">
+        <span class="program-type">{{ program.kind }}</span>
+        <div>
+          <h3>{{ program.title }}</h3>
+          <p>{{ program.description }}</p>
+        </div>
+        @if (program.price) {
+          <p>{{ program.price.amount }} {{ program.price.currency }}</p>
+        }
+        @if (program.availability === 'available') {
+          <a
+            class="button button-light"
+            routerLink="/"
+            fragment="agenda"
+            (click)="selectService.emit(program.serviceId)"
+            >Consultar {{ program.title }}</a
+          >
+        } @else {
+          <p>
+            {{
+              program.availability === 'coming-soon'
+                ? 'Próximamente'
+                : 'Disponibilidad por confirmar'
+            }}
+          </p>
+        }
+      </article>
+    }
+  </div>
+</section>

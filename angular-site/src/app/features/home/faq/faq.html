@@ -1,0 +1,14 @@
+<section class="faq section-pad">
+  <div class="faq-heading">
+    <p class="section-label">Antes de empezar</p>
+    <h2>Preguntas frecuentes</h2>
+  </div>
+  <div class="faq-list">
+    @for (item of items(); track item.id) {
+      <details name="faq">
+        <summary>{{ item.question }}<span aria-hidden="true">+</span></summary>
+        <p>{{ item.answer }}</p>
+      </details>
+    }
+  </div>
+</section>

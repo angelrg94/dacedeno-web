@@ -1,0 +1,54 @@
+<section class="booking section-pad" id="agenda">
+  <div class="booking-copy">
+    <p class="section-label">Agenda</p>
+    <h2>Encontramos tu punto de partida.</h2>
+    <p>
+      Elige el servicio y la modalidad. Si la agenda está activa, te llevará a la disponibilidad
+      real del proveedor.
+    </p>
+    <div class="booking-note">
+      <span aria-hidden="true">♥</span> Sin datos médicos · confirmación externa
+    </div>
+  </div>
+  <form class="booking-form" [formGroup]="form" (ngSubmit)="continueToBooking()" novalidate>
+    <div class="form-step">
+      <span class="form-number">1</span
+      ><label for="booking-service">¿Qué te gustaría trabajar?</label
+      ><select id="booking-service" formControlName="serviceId">
+        <option value="">Elige una opción</option>
+        @for (service of services(); track service.id) {
+          <option [value]="service.id">{{ service.title }}</option>
+        }
+      </select>
+    </div>
+    <div class="form-step">
+      <span class="form-number">2</span><label for="booking-mode">¿Cómo nos encontramos?</label
+      ><select id="booking-mode" formControlName="modality">
+        <option value="">Elige una modalidad</option>
+        <option value="online">Online</option>
+        <option value="presencial">Presencial</option>
+      </select>
+    </div>
+    <button class="button button-primary" type="submit">
+      {{ config().enabled ? 'Ver disponibilidad' : 'Consultar disponibilidad' }}
+    </button>
+    @if (form.controls.serviceId.touched && form.controls.serviceId.invalid) {
+      <p class="field-error">Selecciona un servicio.</p>
+    }
+    @if (form.controls.modality.touched && form.controls.modality.invalid) {
+      <p class="field-error">Selecciona una modalidad.</p>
+    }
+    @if (feedback) {
+      <p class="form-feedback" role="status" aria-live="polite">{{ feedback }}</p>
+    }
+    @if (bookingUrl) {
+      <a
+        class="button button-light external-booking"
+        [href]="bookingUrl"
+        target="_blank"
+        rel="noopener noreferrer"
+        >Continuar a la agenda</a
+      >
+    }
+  </form>
+</section>

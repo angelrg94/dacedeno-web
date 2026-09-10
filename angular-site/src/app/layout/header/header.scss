@@ -1,0 +1,108 @@
+:host {
+  display: block;
+}
+.site-header {
+  min-height: 88px;
+  padding: 17px clamp(22px, 4.5vw, 72px);
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 28px;
+  background: var(--ivory);
+  border-bottom: 1px solid rgba(86, 96, 70, 0.15);
+  position: relative;
+  z-index: 20;
+}
+.main-nav {
+  display: flex;
+  align-items: center;
+  gap: clamp(18px, 2.8vw, 44px);
+  font-size: 13px;
+  font-weight: 600;
+}
+.main-nav a {
+  text-decoration: none;
+}
+.main-nav a:not(.nav-cta) {
+  position: relative;
+}
+.main-nav a:not(.nav-cta)::after {
+  content: '';
+  position: absolute;
+  left: 0;
+  right: 100%;
+  bottom: -7px;
+  height: 2px;
+  background: var(--olive);
+  transition: right 180ms ease;
+}
+.main-nav a:not(.nav-cta):hover::after {
+  right: 0;
+}
+.menu-toggle {
+  display: none;
+  border: 0;
+  background: transparent;
+  padding: 10px;
+}
+@media (max-width: 780px) {
+  .site-header {
+    min-height: 76px;
+    padding: 13px 20px;
+  }
+  .menu-toggle {
+    width: 46px;
+    height: 46px;
+    display: grid;
+    align-content: center;
+    gap: 5px;
+    z-index: 2;
+  }
+  .menu-toggle span:not(.sr-only) {
+    display: block;
+    width: 25px;
+    height: 2px;
+    margin-left: auto;
+    background: var(--ink);
+    transition:
+      transform 180ms ease,
+      opacity 180ms ease;
+  }
+  .menu-toggle[aria-expanded='true'] span:nth-child(1) {
+    transform: translateY(7px) rotate(45deg);
+  }
+  .menu-toggle[aria-expanded='true'] span:nth-child(2) {
+    opacity: 0;
+  }
+  .menu-toggle[aria-expanded='true'] span:nth-child(3) {
+    transform: translateY(-7px) rotate(-45deg);
+  }
+  .main-nav {
+    position: absolute;
+    top: 100%;
+    left: 0;
+    right: 0;
+    display: none;
+    align-items: stretch;
+    flex-direction: column;
+    gap: 0;
+    padding: 16px 20px 28px;
+    background: var(--ivory);
+    border-bottom: 1px solid var(--line);
+  }
+  .main-nav.open {
+    display: flex;
+  }
+  .main-nav a {
+    padding: 15px 0;
+    border-bottom: 1px solid var(--line);
+  }
+  .main-nav .nav-cta {
+    margin-top: 14px;
+    padding: 13px 18px;
+    border: 0;
+    background: var(--deep);
+    color: var(--paper);
+    text-align: center;
+  }
+}

@@ -1,0 +1,31 @@
+:host {
+  display: block;
+}
+.moving-banner {
+  overflow: hidden;
+  background: var(--olive);
+  color: var(--ink);
+  padding: 18px 0;
+}
+.marquee-track {
+  width: max-content;
+  display: flex;
+  align-items: center;
+  gap: 26px;
+  font: 500 clamp(20px, 2.4vw, 35px)/1 var(--display);
+  animation: marquee 25s linear infinite;
+}
+.marquee-track i {
+  color: var(--sage);
+  font-style: normal;
+  font-size: 13px;
+}
+
+.marquee-track {
+  width: auto;
+  justify-content: center;
+  flex-wrap: wrap;
+  padding: 0 24px;
+  animation: none;
+  line-height: 1.3;
+}

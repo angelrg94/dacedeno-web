@@ -1,0 +1,7 @@
+# Angular site
+
+Requires Node 22.22.3 and npm 10.9.8. Angular 22.0.8 / CLI 22.0.9 and TypeScript 6.0.2 are pinned with package-lock.json. Generated with `npx @angular/cli@22.0.9 new angular-site --routing --style=scss --strict --standalone --ssr --skip-git --skip-install --defaults`, then switched to static output and removed Express.
+
+`npm ci`, `npm start`, `npm test`, `npm run typecheck`, `npm run build`.
+
+The optimized build currently creates a **noindex preview**, not a publishable release. Output: `dist/angular-site/browser`. Static routes: `/`, `/privacidad`, `/404`; the host must serve the last document with HTTP 404 for unknown paths. No runtime backend is required. The authoritative scope and external blockers are in the parent PROMPT.md and Obsidian DCA notes.

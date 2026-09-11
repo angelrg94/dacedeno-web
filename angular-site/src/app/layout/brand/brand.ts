@@ -12,9 +12,9 @@ import { RouterLink } from '@angular/router';
     aria-label="Daniela Cedeño, inicio"
     ><img
       class="brand-logo"
-      [src]="inFooter() ? '/brand/logo-daniela-light.svg' : '/brand/logo-daniela.svg'"
-      width="305"
-      height="63"
+      [src]="inFooter() ? '/brand/logo-aprobado-light.png' : '/brand/logo-aprobado.png'"
+      width="1283"
+      height="360"
       alt=""
       aria-hidden="true"
   /></a>`,

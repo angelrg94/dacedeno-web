@@ -1,0 +1,14 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1220 250" role="img" aria-labelledby="logo-title logo-description">
+  <title id="logo-title">Daniela Cedeño</title>
+  <desc id="logo-description">Daniela Cedeño, nutrición más movimiento</desc>
+  <style>
+    @font-face { font-family: 'Logo Display'; src: url('/fonts/bricolage-grotesque-latin-wght-normal.woff2') format('woff2'); font-weight: 700; }
+    @font-face { font-family: 'Logo Body'; src: url('/fonts/manrope-latin-wght-normal.woff2') format('woff2'); font-weight: 400; }
+  </style>
+  <g transform="translate(22 0)" fill="none" stroke="#566046" stroke-linecap="round" stroke-linejoin="round" stroke-width="22">
+    <path d="M132 24v126c0 47-28 76-73 76-42 0-73-28-73-69 0-39 27-67 66-67 28 0 52 14 65 35" />
+    <path d="M32 129c0 27 18 45 45 45 14 0 28-5 39-14" />
+  </g>
+  <text x="242" y="133" fill="#20251c" font-family="'Logo Display', Arial, sans-serif" font-size="91" font-weight="700" letter-spacing="-2">Daniela Cedeño</text>
+  <text x="247" y="198" fill="#20251c" font-family="'Logo Body', Arial, sans-serif" font-size="43" font-weight="400" letter-spacing="1.4">nutrición + movimiento</text>
+</svg>

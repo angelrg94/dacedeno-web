@@ -4,44 +4,21 @@
 .brand {
   display: inline-flex;
   align-items: center;
-  gap: 11px;
+  width: min(305px, 100%);
   text-decoration: none;
 }
-.brand-mark {
-  width: 49px;
-  height: 49px;
-  display: grid;
-  place-items: center;
-  border-radius: 50% 50% 50% 16%;
-  color: var(--paper);
-  background: var(--deep);
-  font: 700 23px/1 var(--display);
-  letter-spacing: -0.08em;
-}
-.brand-copy {
-  display: grid;
-  line-height: 1.05;
-}
-.brand-copy strong {
-  font: 600 17px/1.2 var(--display);
-}
-.brand-copy small {
-  margin-top: 4px;
-  font-size: 10px;
-  letter-spacing: 0.04em;
-}
-.footer-brand .brand-mark {
-  background: var(--sage);
-  color: var(--ink);
+.brand-logo {
+  display: block;
+  width: 100%;
+  height: auto;
 }
 @media (max-width: 780px) {
-  .brand-mark {
-    width: 44px;
-    height: 44px;
+  .brand {
+    width: min(270px, calc(100vw - 90px));
   }
 }
 @media (max-width: 480px) {
-  .brand-copy small {
-    display: none;
+  .brand {
+    width: min(220px, calc(100vw - 84px));
   }
 }

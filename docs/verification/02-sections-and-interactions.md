@@ -9,3 +9,5 @@ The application keeps unapproved testimonials out of the browser and now renders
 `npm ci` succeeds with the pinned Node 22.22.3 toolchain. The gate also checks draft records, empty event/host mappings, origin and timezone; its non-zero result is expected until the external decisions are supplied.
 
 Prerender inspection confirms route-specific title, description, Open Graph and noindex metadata for `/` and `/privacidad`. `generate-sitemap.mjs` refuses to write a sitemap until `PUBLIC_ORIGIN` is a confirmed HTTPS domain.
+
+Static preview verification confirms both approved logo PNGs return `200 OK` with `Content-Type: image/png` and remain loadable with `X-Content-Type-Options: nosniff`.

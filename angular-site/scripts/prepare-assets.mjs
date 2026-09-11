@@ -9,14 +9,14 @@ if (!source)
 await Promise.all(
   ['images', 'brand', 'fonts'].map((folder) => mkdir(`public/${folder}`, { recursive: true })),
 );
-for (const [name, widths] of [
-  ['retrato', [480, 900]],
-  ['parque', [640, 1200]],
+for (const [name, widths, quality] of [
+  ['retrato', [480, 900], 80],
+  ['parque', [640, 1200, 1493], 92],
 ]) {
   for (const width of widths)
     await sharp(join(source, `assets/daniela-entrenamiento-${name}.jpg`))
       .resize({ width })
-      .webp({ quality: 80 })
+      .webp({ quality })
       .toFile(`public/images/daniela-${name}-${width}.webp`);
 }
 await sharp(join(source, 'assets/firma-daniela-source.png'))

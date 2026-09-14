@@ -305,9 +305,40 @@ export const siteContent: SiteContent = {
     },
   ],
   booking: {
-    enabled: false,
-    allowedHosts: [],
-    events: [],
+    enabled: true,
+    allowedHosts: ['calendly.com'],
+    events: [
+      {
+        serviceId: 'nutrition',
+        modality: 'online',
+        url: 'https://calendly.com/cedenorojasd/30min',
+      },
+      {
+        serviceId: 'nutrition',
+        modality: 'presencial',
+        url: 'https://calendly.com/cedenorojasd/30min',
+      },
+      {
+        serviceId: 'training',
+        modality: 'online',
+        url: 'https://calendly.com/cedenorojasd/30min',
+      },
+      {
+        serviceId: 'training',
+        modality: 'presencial',
+        url: 'https://calendly.com/cedenorojasd/30min',
+      },
+      {
+        serviceId: 'integral',
+        modality: 'online',
+        url: 'https://calendly.com/cedenorojasd/30min',
+      },
+      {
+        serviceId: 'integral',
+        modality: 'presencial',
+        url: 'https://calendly.com/cedenorojasd/30min',
+      },
+    ],
   },
   publication: {
     origin: '',

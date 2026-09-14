@@ -41,13 +41,20 @@
     @if (feedback) {
       <p class="form-feedback" role="status" aria-live="polite">{{ feedback }}</p>
     }
+    <div
+      #calendlyContainer
+      class="calendly-embed"
+      [class.calendly-visible]="!!bookingUrl"
+      [class.calendly-embed-loading]="calendlyState === 'loading'"
+      aria-label="Agenda de Calendly"
+    ></div>
     @if (bookingUrl) {
       <a
         class="button button-light external-booking"
         [href]="bookingUrl"
         target="_blank"
         rel="noopener noreferrer"
-        >Continuar a la agenda</a
+        >Abrir Calendly en otra pestaña</a
       >
     }
   </form>

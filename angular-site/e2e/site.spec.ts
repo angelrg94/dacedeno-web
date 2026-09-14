@@ -62,3 +62,21 @@ test('privacy and unknown route have real static responses', async ({ page, requ
   await page.getByRole('link', { name: 'Volver al inicio' }).click();
   await expect(page.locator('h1')).toContainText('Comer bien.');
 });
+test('booking requests Calendly on intent and keeps an external fallback', async ({ page }) => {
+  let scriptRequests = 0;
+  page.on('request', (request) => {
+    if (request.url() === 'https://assets.calendly.com/assets/external/widget.js')
+      scriptRequests += 1;
+  });
+  await page.goto('/');
+  expect(scriptRequests).toBe(0);
+  await page.locator('#booking-service').selectOption('nutrition');
+  await page.locator('#booking-mode').selectOption('online');
+  await page.getByRole('button', { name: 'Ver disponibilidad' }).click();
+  await expect.poll(() => scriptRequests).toBe(1);
+  await expect(page.locator('a.external-booking')).toHaveAttribute(
+    'href',
+    'https://calendly.com/cedenorojasd/30min',
+  );
+  expect(scriptRequests).toBe(1);
+});

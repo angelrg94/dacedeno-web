@@ -11,5 +11,6 @@ Authoritative plan: Obsidian Projects/Daniela Cedeño Web - Angular/DCA 00–09.
 - A14–A15: booking fallback, route-specific SEO metadata, noindex preview robots and domain-gated sitemap generation implemented; publication gate remains blocked on owner approvals and real contact details.
 - A16: build, unit, typecheck, format, Chrome and axe verification passed; see docs/verification/02-sections-and-interactions.md.
 - A17–A18: blocked on hosting/domain, editorial approval and controlled real reservation; prepare release tooling first.
+- A19: Calendly integration implemented with the supplied public event URL, lazy client-only inline embed, accessible loading/error states, external fallback, privacy disclosure and browser-test coverage. The six current service/modality selections resolve to `https://calendly.com/cedenorojasd/30min`.
 
-No deployment, real booking or owner approval has occurred. Preserve pre-existing untracked agent configuration.
+No deployment or controlled real booking has occurred; `publication.bookingVerified` remains false. Preserve pre-existing untracked agent configuration.

@@ -1,6 +1,6 @@
 # Angular site
 
-Requires Node 22.22.3 and npm 10.9.8. Angular 22.0.8 / CLI 22.0.9 and TypeScript 6.0.2 are pinned with package-lock.json. Generated with `npx @angular/cli@22.0.9 new angular-site --routing --style=scss --strict --standalone --ssr --skip-git --skip-install --defaults`, then switched to static output and removed Express.
+Requires Node 24.6.0 and npm 11.5.1. Angular 21.2.23 / CLI 21.2.24 and TypeScript 5.9.3 are pinned with package-lock.json. The application uses Angular's application builder with static output and prerendered routes; no runtime backend is required.
 
 `npm ci`, `npm start`, `npm test`, `npm run typecheck`, `npm run build`, `npm run test:e2e`, `npm run format:check`.
 

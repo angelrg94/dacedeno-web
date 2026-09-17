@@ -26,6 +26,21 @@ test('all sections hydrate without errors and assets load', async ({ page }) => 
   expect(errors).toEqual([]);
   expect(await page.locator('a[href="#"],input[type="email"]').count()).toBe(0);
 });
+test('brand favicon assets are declared and served', async ({ page, request }) => {
+  await page.goto('/');
+  await expect(page.locator('link[rel="icon"][sizes="32x32"]')).toHaveAttribute(
+    'href',
+    '/favicon-32x32.png',
+  );
+  await expect(page.locator('link[rel="apple-touch-icon"]')).toHaveAttribute(
+    'href',
+    '/apple-touch-icon.png',
+  );
+  for (const asset of ['/favicon.ico', '/favicon-32x32.png', '/apple-touch-icon.png']) {
+    const response = await request.get(asset);
+    expect(response.status(), `${asset} should be served`).toBe(200);
+  }
+});
 for (const width of [320, 390, 768, 1024, 1440])
   test(`layout and accessibility at ${width}px`, async ({ page }) => {
     await page.setViewportSize({ width, height: 900 });

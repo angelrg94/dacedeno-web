@@ -78,5 +78,12 @@ test('booking requests Calendly on intent and keeps an external fallback', async
     'href',
     'https://calendly.com/cedenorojasd/30min',
   );
+  await expect(page.locator('.calendly-embed iframe')).toBeVisible();
+  const calendlyGap = await page.locator('.calendly-embed').evaluate((embed) => {
+    const iframe = embed.querySelector('iframe');
+    if (!iframe) return Number.POSITIVE_INFINITY;
+    return iframe.getBoundingClientRect().top - embed.getBoundingClientRect().top;
+  });
+  expect(calendlyGap).toBeLessThan(2);
   expect(scriptRequests).toBe(1);
 });

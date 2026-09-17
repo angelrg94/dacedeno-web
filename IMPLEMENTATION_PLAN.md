@@ -12,5 +12,6 @@ Authoritative plan: Obsidian Projects/Daniela Cedeño Web - Angular/DCA 00–09.
 - A16: build, unit, typecheck, format, Chrome and axe verification passed; see docs/verification/02-sections-and-interactions.md.
 - A17–A18: blocked on hosting/domain, editorial approval and controlled real reservation; prepare release tooling first.
 - A19: Calendly integration implemented with the supplied public event URL, lazy client-only inline embed, accessible loading/error states, external fallback, privacy disclosure and browser-test coverage. The six current service/modality selections resolve to `https://calendly.com/cedenorojasd/30min`.
+- A20: Calendly loading layout refined so its iframe aligns to the top of the reserved provider viewport; this removes the visible blank band between the booking controls and calendar while preserving the responsive embed container.
 
 No deployment or controlled real booking has occurred; `publication.bookingVerified` remains false. Preserve pre-existing untracked agent configuration.

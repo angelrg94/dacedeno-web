@@ -147,8 +147,9 @@
   display: block;
 }
 .calendly-embed.calendly-embed-loading {
-  display: grid;
-  place-items: center;
+  // Calendly starts with a shorter iframe than the provider's safe viewport.
+  // Align it to the top so the reserved height never becomes a gap above it.
+  display: block;
 }
 @media (max-width: 480px) {
   .field-error,
